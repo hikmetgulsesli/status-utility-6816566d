@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Page - Status Utility</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col justify-between">
+  <!-- Top decorative navbar header (no undeclared actionable controls) -->
+  <header class="w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-semibold text-sm shadow-sm">
+          SU
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-semibold text-slate-800 tracking-tight leading-none">Status Utility</span>
+          <span class="text-xs text-slate-500 font-mono mt-1">/status</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+          Operational
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Root Surface Area -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-6 py-12 flex flex-col justify-center">
+    <!-- Surface Container -->
+    <div data-surface-id="SURF_STATUS_PAGE" class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+      <!-- Surface Header Banner -->
+      <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900 tracking-tight">Status Monitor</h1>
+          <p class="text-sm text-slate-500 mt-1">Real-time status check and telemetry inspection</p>
+        </div>
+        <!-- Refresh Button: Physical Control Slot -->
+        <div>
+          <button
+            type="button"
+            data-action="ACT_REFRESH_STATUS"
+            data-control-slot="CSLOT_REFRESH_STATUS_REFRESH_BUTTON"
+            class="inline-flex items-center justify-center px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Refresh Status
+          </button>
+        </div>
+      </div>
+
+      <!-- Surface Body Content -->
+      <div class="p-8 space-y-6">
+        <!-- Status Display Card -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Service Status</span>
+            <div class="mt-2 flex items-baseline space-x-2">
+              <span class="text-2xl font-bold text-slate-800">Operational</span>
+              <span class="text-xs text-emerald-600 font-medium">99.98% uptime</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">All primary subsystems communicating normally.</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Current Route</span>
+            <div class="mt-2 flex items-baseline space-x-2">
+              <span class="text-2xl font-mono font-bold text-slate-800">/status</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Single-page utility endpoint.</p>
+          </div>
+        </div>
+
+        <!-- Refresh Observation Context & Notification Elements -->
+        <div class="border-t border-slate-100 pt-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wider">Sync State</h2>
+            <span class="text-xs text-slate-400">Target route: /status</span>
+          </div>
+
+          <!-- Observable target representation: Status Text & Value -->
+          <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+              <div>
+                <span class="text-sm font-medium text-slate-800">Status State:</span>
+                <span class="ml-1 text-sm font-semibold text-indigo-700">Status refreshed</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-500">Current value:</span>
+              <span class="ml-1 text-xs font-mono font-semibold px-2 py-0.5 rounded bg-white border border-indigo-200 text-indigo-800">refreshed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Surface Footer Information -->
+      <div class="px-8 py-4 bg-slate-50/80 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 gap-2">
+        <span>Persistent storage sync enabled across browser reloads</span>
+        <span class="font-mono">Route: /status</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Decorative Footer (no actionable links or buttons) -->
+  <footer class="w-full bg-white border-t border-slate-200 py-4">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-xs text-slate-500">
+      <span>Status Utility System &copy; 2025</span>
+      <span>Desktop Monitoring Client</span>
+    </div>
+  </footer>
+</body>
+</html>
